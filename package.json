@@ -1,0 +1,15 @@
+{
+  "name": "static-asset-loader",
+  "version": "1.0.0",
+  "main": "static-asset-loader.js",
+  "license": "MIT",
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.3.0"
+  },
+  "scripts": {
+    "test": "webpack --config example.webpack.config.js"
+  }
+}
