@@ -12,14 +12,14 @@ module.exports = function(content) {
 
     const relativeTo = query.relativeTo || __dirname;
     const prefix = query.prefix || "";
-
-    const hash = loaderUtils.interpolateName(this.context, `[hash]`, {
+    const hash = loaderUtils.interpolateName(this.context, `[sha256:hash]`, {
         context: this.options.context,
         regExp: this.options.regExp,
         content
     });
 
     const resourcePath = path.relative(relativeTo, this.resourcePath);
+    const parsedPath = path.parse(resourcePath)
 
-    return `module.exports = "${prefix}${resourcePath}?v=${hash}"`;
+    return `module.exports = "${prefix}${parsedPath.dir}/${parsedPath.name}-${hash}${parsedPath.ext}"`;
 };
