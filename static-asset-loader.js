@@ -14,8 +14,7 @@ module.exports = function(content) {
     const prefix = query.prefix || "";
 
     const hash = loaderUtils.interpolateName(this.context, `[hash]`, {
-        context: this.options.context,
-        regExp: this.options.regExp,
+        context: this.rootContext || this.options.context,
         content
     });
 

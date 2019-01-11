@@ -7,11 +7,11 @@ module.exports = {
         filename: "./example/dist/bundle.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /.*\.(gif|png|jpe?g|svg|bmp)$/i,
                 loader: path.join(__dirname, "./static-asset-loader"),
-                query: {
+                options: {
                     relativeTo: path.join(__dirname, "example/static"),
                     prefix: "https://assets.somedomain.com/"
                 }
